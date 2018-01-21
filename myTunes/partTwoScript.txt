@@ -1,0 +1,39 @@
+//-----------------TESTING SCRIPT-------------------\\
+
+//----------------FR4.1.1 & FR4.1.3-----------------\\
+add -l fjones mysongs 89
+add -l ajones "morning songs" 89
+add -l fjones mysongs 93
+add -l ajones "morning songs" 93
+compare -u1 ajones -u2 fjones
+
+//---------------------FR4.1.2----------------------\\
+compare -u1 fjones -u2 fjones
+
+//---------------------FR4.1.4----------------------\\
+add -l cindy favourites 68
+add -l ajones "evening songs" 68
+compare -u1 cindy -u2 ajones
+
+//---------------------FR4.1.5----------------------\\
+reorder -u cindy -p test
+reorder -u test -p favourites
+
+//---------------------FR4.1.6----------------------\\
+show tracks -t 82
+reorder -u gjones -p mysongs 4 2 3 1
+show tracks -t 82
+show tracks -t 81
+show tracks -t 6
+show tracks -t 1
+
+//---------------------FR4.1.7----------------------\\
+// less parameters: (sorts for given parameters, leaves the rest in the order it was in)
+reorder -u fjones -p favourites 3 1
+// equal parameters: (sorts the tracks in the order provided)
+reorder -u ajones -p driving 3 1 2
+// equal parameters: (ignores extra parameters and out of bound parameters)
+reorder -u ajones -p favourites 2 0 3 3 1 12
+
+//---------------------FR4.1.8----------------------\\
+reorder -u cindy -p help

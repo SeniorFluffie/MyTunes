@@ -1,0 +1,77 @@
+//-----------------TESTING SCRIPT------------------\\
+
+//----------------FR4.1.1 & FR4.1.2----------------\\
+follow -u ajones -p favourites -f fjones
+show users -u fjones
+show users -u ajones
+follow -u ajones -p favourites -f stop
+
+//--------------------FR4.1.3-----------------------\\
+follow -u ajones -p favourites -f fjones
+add -l fjones favourites 15
+show users -u ajones
+show users -u fjones
+follow -u ajones -p favourites -f stop
+
+//---------------------FR4.1.4----------------------\\
+follow -u ajones -p favourites -f fjones
+add -l fjones favourites 30
+follow -u fjones -p favourites -f ajones
+add -l ajones favourites 42
+show users -u ajones
+show users -u fjones
+follow -u fjones -p favourites -f stop
+follow -u ajones -p favourites -f stop
+
+//---------------------FR4.1.5----------------------\\
+follow -u ajones -p favourites -f ajones
+
+//---------------------FR4.1.6----------------------\\
+follow -u ajones -p testing -f ajones
+
+//---------------------FR4.1.7----------------------\\
+follow -u fjones -p favourites -f ajones
+follow -u fjones -p mysongs -f gjones
+add -l ajones favourites 60
+add -l gjones mysongs 45
+show users -u fjones
+show users -u ajones
+show users -u gjones
+follow -u fjones -p favourites -f stop
+follow -u fjones -p mysongs -f stop
+
+//---------------------FR4.1.8----------------------\\
+add -p ajones help
+add -p fjones help
+//show users
+follow -u ajones -p help -f cindy
+follow -u fjones -p help -f cindy
+show users -u cindy
+show users -u ajones
+show users -u fjones
+follow -u ajones -p help -f stop
+follow -u fjones -p help -f stop
+follow -u cindy -p help -f stop
+
+//---------------------FR4.1.9----------------------\\
+add -p fjones driving
+add -p cindy driving
+follow -u fjones -p driving -f ajones
+follow -u cindy -p driving -f ajones
+show users -u ajones
+show users -u fjones
+show users -u cindy
+delete -u ajones -p driving
+show users -u ajones
+show users -u fjones
+show users -u cindy
+follow -u fjones -p help -f stop
+follow -u cindy -p help -f stop
+
+//---------------------FR4.1.10----------------------\\
+follow -u cindy -p favourites -f fjones
+follow -u ajones -p favourites -f fjones
+show users -u fjones
+show users -u cindy
+delete -u cindy -p favourites
+show users
